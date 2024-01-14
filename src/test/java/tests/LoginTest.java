@@ -22,6 +22,7 @@ public class LoginTest extends BaseTest{
         app.getUser().isButtonAgreePresent();
         app.getUser().clickButtonAgree();
         app.getUser().clickButtonSubmit();
+        app.getUser().pause(5000);
         Assert.assertTrue(app.getUser().IsHomePageOpen());
 
     }

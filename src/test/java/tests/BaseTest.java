@@ -25,8 +25,8 @@ static AppManager app = new AppManager();
     @AfterSuite(alwaysRun = true)
 
     public void stop() {
-        app.tearDown();
-        logger.info("Test stopped");
+       // app.tearDown();
+       // logger.info("Test stopped");
 
 
 

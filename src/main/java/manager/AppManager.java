@@ -19,9 +19,19 @@ public class AppManager {
 
    Properties properties;
     HelperUser user;
+    HelperHomePage homePage ;
+    HelperGreatorPage greatPage ;
 
     public HelperUser getUser() {
         return user;
+    }
+
+    public HelperHomePage getHomePage() {
+        return homePage;
+    }
+
+    public HelperGreatorPage getGreatPage() {
+        return greatPage;
     }
 
     public AppManager() {
@@ -35,6 +45,9 @@ public class AppManager {
             // driver.navigate().to(properties.getProperty("web.baseUrl"));
             driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             user = new HelperUser(driver);
+            homePage=new HelperHomePage(driver);
+            greatPage =new HelperGreatorPage(driver);
+
 
         }
 
