@@ -3,16 +3,16 @@ package tests;
 import models.UserDTO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Reader;
+
+import static utils.Reader.getProperty;
+
 
 public class LoginTest extends BaseTest{
 
 
     @Test
     public void testLogin(){
-        UserDTO user =  UserDTO.builder()
-                .email("olgakolcina861@gmail.com")
-                .password("sara123$")
-                .build();
         app.getUser().isHomePagePresent();
         app.getUser().openLoginWindow();
         app.getUser().isModalWindowPresent();

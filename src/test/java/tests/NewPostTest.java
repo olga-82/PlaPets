@@ -36,7 +36,11 @@ public class NewPostTest extends BaseTest{
     }
 
 
+@AfterMethod
+    public void postcondition(){
 
+        app.getUser().logout();
+}
 
 
 }

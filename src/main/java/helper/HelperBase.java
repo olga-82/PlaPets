@@ -1,6 +1,7 @@
-package manager;
+package helper;
 
 import com.google.common.io.Files;
+import manager.AppManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class HelperBase {
+public class HelperBase  {
 
 
 

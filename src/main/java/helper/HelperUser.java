@@ -1,6 +1,5 @@
-package manager;
+package helper;
 
-import models.PetsPostDTO;
 import models.UserDTO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +21,7 @@ public class HelperUser extends HelperBase {
     private final String BUTTON_AGREE = "//*[@id='root']/div[6]/div/div/div[2]/button";
     private final String BUTTON_SUBMIT = " //*[@id='root']/div[6]/div/div/div[5]/div[2]/button[2]";
     private final String BUTTON_ADD = "//*[@id='root']/div[1]/div/div[2]/button";
+    private final String TAB_LOGOUT = " //div[@data-test-id='logout-container']";
 
     public void openLoginWindow() {
         click(By.xpath(BUTTON_SIGN_IN));
@@ -82,5 +82,8 @@ public class HelperUser extends HelperBase {
         clickButtonSubmit();
         Assert.assertTrue(IsHomePageOpen());
 
+    }
+    public void logout() {
+        click(By.xpath(TAB_LOGOUT));
     }
 }

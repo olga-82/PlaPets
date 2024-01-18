@@ -1,16 +1,15 @@
-package manager;
+package helper;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 
 public class HelperHomePage extends HelperBase {
     public HelperHomePage(WebDriver driver) {
         super(driver);
     }
 
-    private final String TAB_LOGOUT = " //div[@data-test-id='logout-container']";
+
     private final String BUTTON_ADD = "//*[@id='root']/div[1]/div/div[2]/button";
     private final String TAB_HOME = "//div[@data-test-id='navigation']/div[1]";
     private final String TAB_LOST = "//div[@data-test-id='navigation']/div[2]";
@@ -28,24 +27,23 @@ public class HelperHomePage extends HelperBase {
         isElementPresent(By.xpath(BUTTON_ADD));
 
     }
-    public void clickButtonHome() {
+    public void clickTabHome() {
         click(By.xpath(TAB_HOME));
     }
-    public void clickAddButt() {
-        // click(By.cssSelector("label[for='terms-of-use']"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.querySelector" +
-                "('#root > div.sc-aXZVg.llOyaz > div > div.sc-gsFSXq.bnjPcz > button').click();");
-
-//        Rectangle rect = wd.findElement(By.cssSelector("div.checkbox-container")).getRect();
-//        int x = rect.getX()+5;
-//        int y = rect.getY()+ rect.getHeight()/4;
-//        Actions actions = new Actions(wd);
-//        actions.moveByOffset(x,y).click().perform();
+    public void clickTabLost() {
+        click(By.xpath(TAB_LOST));
+    }
+    public void clickTabFound() {
+        click(By.xpath(TAB_FOUND));
+    }
+    public void clickTabServise() {
+        click(By.xpath(TAB_SERVISES));
+    }
+    public void clickTabFavorites() {
+        click(By.xpath(TAB_FAVORITES));
     }
 
-    public void logout() {
-        click(By.xpath(TAB_LOGOUT));
-    }
+
+
+
 }
-//#root > div.sc-aXZVg.llOyaz > div > div.sc-gsFSXq.bnjPcz > button

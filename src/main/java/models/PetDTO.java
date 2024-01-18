@@ -10,8 +10,8 @@ import lombok.ToString;
 @Builder
 @ToString
 public class PetDTO {
-    String type;
-    String Sex;
+    Type type;
+    Gender Sex;
     String Breed;
     String color;
     String DistinctiveFeatures;
