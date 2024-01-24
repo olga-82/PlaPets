@@ -78,7 +78,6 @@ public class AppManager {
             homePage=new HelperHomePage(driver);
             greatPage =new HelperGreatorPage(driver);
 
-
     }
 
 @AfterSuite(alwaysRun = true)

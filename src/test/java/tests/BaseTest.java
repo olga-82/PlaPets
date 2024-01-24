@@ -3,6 +3,9 @@ package tests;
 import helper.TestNGListener;
 import helper.WDListener;
 import manager.AppManager;
+import models.Gender;
+import models.PetDTO;
+import models.Type;
 import models.UserDTO;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.WebDriverEventListener;
@@ -25,17 +28,17 @@ public class BaseTest {
             .password(Reader.getProperty("web.password"))
             .build();
 
-    //        PetDTO pet =  PetDTO.builder()
-//                .type(Type.CAT)
-//                .Sex(Gender.FEMALE)
-//                .Breed("test")
-//                .color("grey")
-//                .DistinctiveFeatures("test")
-//                .description("test description")
-//                .location("Tel Aviv")
-//                .contactsPhone("2345676543")
-//                .email("test@mail.com")
-//                .build();
+            PetDTO pet =  PetDTO.builder()
+                .type(Type.CAT)
+                .Sex(Gender.FEMALE)
+                .Breed("test")
+                .color("grey")
+                .DistinctiveFeatures("test")
+                .description("test description")
+                .location("Tel Aviv")
+                .contactsPhone("2345676543")
+                .email("test@mail.com")
+                .build();
 
   @BeforeSuite
     public void setUp() throws IOException {

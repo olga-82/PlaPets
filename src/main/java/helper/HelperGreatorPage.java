@@ -61,6 +61,27 @@ public class HelperGreatorPage extends HelperBase {
 
 
     }
+    public void fillLostForm(PetDTO pet){
+        clickButtonLostMyPet();
+        click(By.xpath(INPUT_TYPE));
+        selectType(pet.getType());
+        click(By.xpath(INPUT_SEX));
+        selectorGender(pet.getSex());
+        type(By.xpath(INPUT_BREED), pet.getBreed());
+        type(By.xpath(INPUT_COLOR), pet.getColor());
+        waitElementToBeClickable(By.xpath(INPUT_Distinctive_FEATURES));
+        fillDistinctiveFeatures(pet.getDistinctiveFeatures());
+        addPicture();
+        inputDescription(pet.getDescription());
+        clickButtonAddDesc();
+        selectLocation(pet.getLocation());
+        inputPhone(pet.getContactsPhone());
+        typeEmail(pet.getEmail());
+        click(By.xpath(BUTTON_PUBLISH));
+
+
+
+    }
     public void fillNewPost(PetsPostDTO pets) {
         //  type(By.xpath(INPUT_TEXT), pets.getText());
         // waitElementToBeClickable(By.xpath(BROWSER_BUTTON));

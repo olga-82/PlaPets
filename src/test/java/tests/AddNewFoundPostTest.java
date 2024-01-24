@@ -12,10 +12,6 @@ import utils.DataProviderCVS;
 public class AddNewFoundPostTest extends BaseTest{
     @BeforeMethod
     public void precondition(){
-//        UserDTO user  = UserDTO.builder()
-//                .email("olgakolcina861@gmail.com")
-//                .password("sara123$")
-//                .build();
         app.getUser().loginUser(user);
 
     }
@@ -28,6 +24,16 @@ public class AddNewFoundPostTest extends BaseTest{
         app.getGreatPage().fillFoundForm(pet);
         app.getGreatPage().GetText();
     }
+    @Test
+    public void AddNewLostPost(){
+        app.getUser().pause(5000);
+        app.getHomePage().isButtonAddPresent();
+        app.getHomePage().clickAddButton();
+        app.getUser().pause(5000);
+        app.getGreatPage().fillLostForm(pet);
+        app.getGreatPage().GetText();
+    }
+
     @AfterMethod
     public void postCondition(){
         app.getUser().logout();

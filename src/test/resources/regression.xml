@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="PreProd" verbose="1" >
+
+    <test name="regressionTest">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.NewPostTest"/>
+            <class name="tests.AddNewFoundPostTest"/>
+        </classes>
+    </test>
+</suite>

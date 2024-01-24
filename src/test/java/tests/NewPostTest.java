@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 public class NewPostTest extends BaseTest{
     @BeforeMethod
     public void precondition(){
-        UserDTO user  = UserDTO.builder()
-                .email("olgakolcina861@gmail.com")
-                .password("sara123$")
-                .build();
+//        UserDTO user  = UserDTO.builder()
+//                .email("olgakolcina861@gmail.com")
+//                .password("sara123$")
+//                .build();
         app.getUser().loginUser(user);
 
 
