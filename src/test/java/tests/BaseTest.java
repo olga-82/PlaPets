@@ -1,16 +1,20 @@
 package tests;
 
+import helper.TestNGListener;
+import helper.WDListener;
 import manager.AppManager;
 import models.UserDTO;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import utils.Reader;
 
 import java.io.IOException;
-
+@Listeners(TestNGListener.class)
 public class BaseTest {
     Logger logger = LoggerFactory.getLogger(BaseTest.class);
 

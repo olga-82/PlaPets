@@ -1,13 +1,14 @@
 package tests;
 
-import models.UserDTO;
+
+import helper.TestNGListener;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.Reader;
-
-import static utils.Reader.getProperty;
 
 
+
+@Listeners(TestNGListener.class)
 public class LoginTest extends BaseTest{
 
 
