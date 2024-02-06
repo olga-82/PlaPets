@@ -12,6 +12,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class HelperGreatorPage extends HelperBase {
     public HelperGreatorPage(WebDriver driver) {
         super(driver);
@@ -97,7 +99,7 @@ public class HelperGreatorPage extends HelperBase {
 
     }
     public void fillDistinctiveFeatures(String text){
-        WebElement element = new WebDriverWait(driver, 20)
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(2000))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(INPUT_Distinctive_FEATURES)));
         Actions action = new Actions(driver);
         action.moveToElement(element).click();
@@ -165,7 +167,7 @@ public class HelperGreatorPage extends HelperBase {
         }
     }
     public void addPicture() {
-        WebElement element = new WebDriverWait(driver, 20)
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(2000))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(BROWSER_BUTTON)));
         Actions action = new Actions(driver);
         action.moveToElement(element).click();
@@ -180,7 +182,7 @@ public class HelperGreatorPage extends HelperBase {
     }
 
     public void inputDescription(String text) {
-        WebElement element = new WebDriverWait(driver, 20)
+        WebElement element = new WebDriverWait(driver, Duration.ofNanos(2000))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(INPUT_DESCRIPTION)));
         Actions action = new Actions(driver);
         action.moveToElement(element).click();
@@ -188,7 +190,7 @@ public class HelperGreatorPage extends HelperBase {
     }
 
     public void clickButtonAddDesc() {
-        WebElement button = new WebDriverWait(driver, 20)
+        WebElement button = new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(BUTTON_ADD_DESC)));
         Actions action = new Actions(driver);
         action.moveToElement(button).click().build().perform();
@@ -196,7 +198,7 @@ public class HelperGreatorPage extends HelperBase {
     }
 
     public void inputPhone(String text) {
-        WebElement element = new WebDriverWait(driver, 20)
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(INPUT_CONTACTS)));
         Actions action = new Actions(driver);
         action.moveToElement(element).click();

@@ -7,10 +7,15 @@ import helper.HelperUser;
 import helper.WDListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+import org.openqa.selenium.support.events.WebDriverListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterSuite;
@@ -24,8 +29,8 @@ public class AppManager {
 
    Logger logger = LoggerFactory.getLogger(AppManager.class);
 
-    EventFiringWebDriver driver;
 
+    WebDriver driver;
 
     HelperUser user;
     HelperHomePage homePage ;
@@ -33,9 +38,14 @@ public class AppManager {
     Properties properties;
     String browser;
 
-    public AppManager( ) {
-        browser =  System.getProperty("browser", BrowserType.CHROME);;
-    }
+
+
+        public AppManager() {
+        browser = System.getProperty("browser", Browser.CHROME.browserName());
+//        // public ApplicationManager(String browser) { this.browser = browser;
+////    }
+   }
+
 
     public HelperUser getUser() {
         return user;
@@ -52,31 +62,41 @@ public class AppManager {
 //    public String getEmail() {
 //        return properties.getProperty("web.email");
 //    }
-//    public String getPassword() {
-//        return properties.getProperty("web.password");
-//    }
+
 
 
     @BeforeSuite(alwaysRun = true)
-        public void init(){
+        public void init() {
 
-        if(browser.equals(BrowserType.CHROME)) {
-            driver = new EventFiringWebDriver(new ChromeDriver());
-            logger.info("Test start on Chrome");
-        }else if(browser.equals(BrowserType.FIREFOX)){
-           driver = new EventFiringWebDriver(new FirefoxDriver());
-            logger.info("Test start on FireFox");
-        } else if (browser.equals(BrowserType.SAFARI)) {
-              driver = new EventFiringWebDriver(new SafariDriver());
-            logger.info("Test start on Safari");
+          AppManager app = new AppManager();
+          System.out.println("browser: " + browser);
+          if(browser.equals(Browser.CHROME.browserName())) {
+            ChromeOptions options = new ChromeOptions();
+            //   if(true) {
+            // options.addArguments("--headless=new");
+            WebDriver original = new ChromeDriver(options);
+            AbstractWebDriverEventListener listener = new WDListener();
+            driver = new EventFiringDecorator(listener.getClass()).decorate(original);
+            logger.warn(browser);
+
+        } else if (browser.equals(Browser.FIREFOX.browserName())){
+            FirefoxOptions options = new FirefoxOptions();
+            // options.addArguments("--headless");
+            WebDriver original = new FirefoxDriver(options);
+              WDListener listener = new WDListener();
+            driver = new EventFiringDecorator(listener.getClass()).decorate(original);
+            logger.warn(browser);
+
         }
-            driver.navigate().to(Reader.getProperty("web.baseUrl"));
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-            driver.register(new WDListener());
-            user = new HelperUser(driver);
-            homePage=new HelperHomePage(driver);
-            greatPage =new HelperGreatorPage(driver);
+
+        driver.navigate().to(Reader.getProperty("web.baseUrl"));
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+
+        user = new HelperUser(driver);
+        homePage = new HelperHomePage(driver);
+        greatPage = new HelperGreatorPage(driver);
 
     }
 

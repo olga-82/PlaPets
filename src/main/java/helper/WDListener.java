@@ -12,6 +12,12 @@ import org.slf4j.LoggerFactory;
 
 public class WDListener extends AbstractWebDriverEventListener {
 
+    WebDriver driver;
+
+    public WDListener(WebDriver driver) {
+        this.driver = driver;
+    }
+
     Logger logger = LoggerFactory.getLogger(WDListener.class);
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
@@ -34,6 +40,7 @@ public class WDListener extends AbstractWebDriverEventListener {
     @Override
     public <X> void afterGetScreenshotAs(OutputType<X> target, X screenshot) {
         super.afterGetScreenshotAs(target, screenshot);
+
     }
 
 

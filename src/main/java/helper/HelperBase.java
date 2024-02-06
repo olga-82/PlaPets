@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 
 public class HelperBase  {
@@ -43,11 +44,11 @@ public class HelperBase  {
 
 
     public void waitElementToBeClickable(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     public WebElement wait(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5) );
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElement(locator);
     }
