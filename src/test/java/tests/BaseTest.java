@@ -18,8 +18,10 @@ import utils.Reader;
 
 import java.io.IOException;
 @Listeners(TestNGListener.class)
+
 public class BaseTest {
     Logger logger = LoggerFactory.getLogger(BaseTest.class);
+
 
     AppManager app =new AppManager();
 
@@ -44,6 +46,7 @@ public class BaseTest {
     public void setUp() throws IOException {
        app.init ();
        logger.info("Test started");
+
     }
 
 

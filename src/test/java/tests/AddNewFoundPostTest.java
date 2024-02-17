@@ -1,14 +1,18 @@
 package tests;
 
+import helper.TestNGListener;
+import helper.WDListener;
 import models.Gender;
 import models.PetDTO;
 import models.Type;
 import models.UserDTO;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utils.DataProviderCVS;
 
+@Listeners(TestNGListener.class)
 public class AddNewFoundPostTest extends BaseTest{
     @BeforeMethod
     public void precondition(){
